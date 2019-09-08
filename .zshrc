@@ -83,25 +83,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias clear_merged_branches="git branch --merged | grep -v '\*' | xargs -n 1 git branch -d"
-alias hmocha="dco run --rm hot_assets ./node_modules/mocha/bin/mocha tests/.setup.js"
-alias hwmocha="dco run --rm hot_assets node ./node_modules/mocha-webpack/bin/mocha-webpack --webpack-config tests/webpack.test.config.babel.js"
-
 RUBY_DEP_GEM_SILENCE_WARNINGS=1
-export npm_config_loglevel="error"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-alias sub ='subl'
-source ~/.bin/tmuxinator.zsh
-postman=/home/toma/.postman/Postman
+# source ~/.bin/tmuxinator.zsh
+# postman=/home/toma/.postman/Postman
 
 export BUNDLER_EDITOR='vim'
 export DOCKER_HOST_IP=localhost
-export GITHUB_TOKEN=82d6246965f95448e771e4acddf6fe20e14443ad
-
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/home/toma/apps/scripts/translations
-export PATH=$PATH:/home/toma/.local/bin
+# export GITHUB_TOKEN=82d6246965f95448e771e4acddf6fe20e14443ad
 
 # Kubectl objects autocomplite
 if [ $commands[kubectl] ]; then
@@ -111,39 +101,10 @@ fi
 # UI App dev specific:
 # Set puma concurrency to 1 so we don't have to deal with overlapping
 # requests when debugging with `binding.pry`
-export PUMA_WEB_CONCURRENCY=1
-export PUMA_MAX_THREADS=1
-export PUMA_MIN_THREADS=1
-export PUMA_WORKER_TIMEOUT=999999
+# export PUMA_WEB_CONCURRENCY=1
+# export PUMA_MAX_THREADS=1
+# export PUMA_MIN_THREADS=1
+# export PUMA_WORKER_TIMEOUT=999999
 
-# Mt4ReportServerConfig
-export MT4_REPORT_SERVER_HOST=104.155.120.254
-export MT4_REPORT_SERVER_DB=mt4-real-report-tableau
-export MT4_REPORT_SERVER_USER=tableau
-export MT4_REPORT_SERVER_PASSWORD=Kbx1qDvDGM
-
-# Obelix service configurations
-export OBELIX_HOST=35.187.17.171
-export OBELIX_PORT=5038
-export OBELIX_USER=obelix
-export OBELIX_SECRET=db1d14079861feef82f15b3673c74b29
-
-
-export CONRAD_CONFIG_FILE='/home/toma/.conrad_config.yaml'
-
+export PATH="$HOME/.npm-global/bin:$PATH"
 export EDITOR='vim'
-
-source ~/.bin/tmuxinator.zsh
-
-# Get ride of spring
-export DISABLE_SPRING=true
-
-export DOCKER_HOST_IP=172.17.0.1
-
-# Work related shorthands
-alias start_work='tmuxinator obelix; tmuxinator dogmatix; tmuxinator hype; tmuxinator uiapp; tmuxinator proftit-import; tmux attach'
-alias stop_redis_psql='sudo service redis stop; sudo service postgresql stop'
-alias start_redis_psql='sudo service redis start; sudo service postgresql start'
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh"  ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
