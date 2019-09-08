@@ -24,6 +24,7 @@ Plugin 'tpope/vim-rails'                    " Rails syntax
 Plugin 'gmitrev/vim-ruby'                   " Using my fork because of the support for (), {} and []
 Plugin 'vim-scripts/ruby.vim--IGREQUE'      " Improved Indendation
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-liquid'                   " Markdown syntax Highlight for jekyll
 
 " JS
 Plugin 'pangloss/vim-javascript'
@@ -31,6 +32,7 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'mxw/vim-jsx'
 Plugin 'mtscout6/vim-cjsx'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " Html
 Plugin 'mattn/emmet-vim'
@@ -174,6 +176,9 @@ color amalgam
 nnoremap j gj
 nnoremap k gk
 
+" Auto HTML tag closing and auto identation ref: http://vim.wikia.com/wiki/Auto_closing_an_HTML_tagk
+:inoremap <lt>/ </<C-x><C-o><Esc>==gi
+
 " Syntax config
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufNewFile,BufRead *.rabl set filetype=ruby
@@ -190,6 +195,7 @@ au BufNewFile,BufRead bash_profile set filetype=sh
 au BufNewFile,BufRead *.slim set filetype=slim
 au BufNewFile,BufRead *.eco set filetype=html
 au BufNewFile,BufRead *.pp set filetype=puppet
+au BufNewFile,BufRead *.hbs set filetype=mustache
 au BufNewFile,BufRead scratch_pad set filetype=ruby
 
 
@@ -201,6 +207,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Vertical column at char 100
 set colorcolumn=100
+
+" AG searches
+nnoremap <Leader>f :Ag -w <cword><CR>
 
 " CtrlP
 " set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -218,7 +227,7 @@ let g:syntastic_ruby_rubocop_exec = 'rubocop'
 let g:table_mode_corner='|'
 
 " Custome leader mappings
-" let mapleader = "\<space> "
+let mapleader = "\<space>"
 
 " Format json
 com! FormatJSON %!python -m json.tool
