@@ -223,6 +223,13 @@ let g:ctrlp_custom_ignore = '\v[\/](coverage|tmp|out|node_modules|deps|_build)$'
 let g:syntastic_ruby_checkers     = ['rubocop', 'mri']
 let g:syntastic_ruby_rubocop_exec = 'rubocop'
 
+" JS linter config
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exe = 'eslint'
+
+let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_eslint_exe = 'standard'
+
 " VIM Table Mode
 let g:table_mode_corner='|'
 
@@ -231,4 +238,16 @@ let mapleader = "\<space>"
 
 " Format json
 com! FormatJSON %!python -m json.tool
+nnoremap <leader>json :FormatJSON<CR>
 
+" Disable markdown folding
+let g:vim_markdown_folding_disabled = 1
+
+" Toggle table mode for markdown tables
+nnoremap <leader>t :TableModeToggle<CR>
+
+" Paste last yank
+nnoremap <leader>p "0p
+nnoremap <leader>P "0P
+vnoremap <leader>p "0p
+vnoremap <leader>P "0P
